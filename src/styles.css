@@ -1,0 +1,18 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, sans-serif; color: #000; }
+.app { display: flex; flex-direction: column; height: 100vh; }
+header { padding: 12px 16px; background: #fff; border-bottom: 1px solid #ccc; }
+h1 { margin: 0 0 10px; font-size: 20px; }
+.kpis { display: flex; gap: 12px; flex-wrap: wrap; }
+.kpi { border: 1px solid #ccc; border-radius: 6px; padding: 8px 14px; min-width: 150px; }
+.kpi b { display: block; font-size: 24px; }
+.kpi span { font-size: 12px; color: #444; }
+main { position: relative; flex: 1; }
+.tooltip { position: absolute; z-index: 5; background: #fff; border: 1px solid #999; border-radius: 4px;
+  padding: 6px 10px; font-size: 13px; pointer-events: none; box-shadow: 0 2px 6px rgba(0,0,0,.25); }
+.leyenda { position: absolute; right: 12px; bottom: 24px; z-index: 5; background: #fff; border: 1px solid #ccc;
+  border-radius: 6px; padding: 8px 12px; font-size: 13px; }
+.leyenda i { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 6px; }
+.aviso { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); z-index: 6; background: #fff;
+  padding: 6px 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 13px; }
+.aviso.error { color: #b00020; }
