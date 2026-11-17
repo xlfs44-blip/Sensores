@@ -14,10 +14,10 @@ const COLORES = {
   Baja: [24, 128, 56],
 }
 
-// Mapa base (OpenStreetMap vía CARTO) dibujado como capa de deck.gl
+// Mapa base (OpenStreetMap) dibujado como capa de deck.gl
 const capaBase = new TileLayer({
   id: 'mapa-base',
-  data: 'https://basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
+  data: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
   minZoom: 0,
   maxZoom: 19,
   tileSize: 256,
@@ -119,6 +119,8 @@ export default function App() {
             </div>
           )}
         </DeckGL>
+
+        <div className="atribucion">© OpenStreetMap contributors</div>
 
         <div className="leyenda">
           {Object.entries(COLORES).map(([k, c]) => (
