@@ -5,7 +5,7 @@ import { HeatmapLayer } from '@deck.gl/aggregation-layers'
 import { TileLayer } from '@deck.gl/geo-layers'
 import { supabase } from './supabaseClient'
 
-const VISTA_INICIAL = { longitude: -62.2615, latitude: -38.7130, zoom: 14.6, pitch: 0, bearing: 0 }
+const VISTA_INICIAL = { longitude: -58.44, latitude: -34.61, zoom: 11.3, pitch: 0, bearing: 0 }
 
 // Color por categoría (RGB): Alta = temperatura más alta
 const COLORES = {
@@ -82,9 +82,9 @@ export default function App() {
           pickable: true,
           getPosition: (d) => [d.longitud, d.latitud],
           getFillColor: (d) => COLORES[d.categoria] ?? [100, 100, 100],
-          getRadius: 45,
-          radiusMinPixels: 8,
-          radiusMaxPixels: 40,
+          getRadius: 300,
+          radiusMinPixels: 7,
+          radiusMaxPixels: 25,
           opacity: 0.85,
           stroked: true,
           getLineColor: [255, 255, 255],
@@ -120,7 +120,7 @@ export default function App() {
           )}
         </DeckGL>
 
-        <div className="atribucion">© OpenStreetMap contributors</div>
+        <div style={{ position: 'absolute', left: 0, bottom: 0, zIndex: 5, background: 'rgba(255,255,255,.8)', padding: '2px 6px', fontSize: 11 }}>© OpenStreetMap contributors</div>
 
         <div className="leyenda">
           {Object.entries(COLORES).map(([k, c]) => (
@@ -135,3 +135,4 @@ export default function App() {
     </div>
   )
 }
+
